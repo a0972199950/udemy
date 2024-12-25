@@ -1,0 +1,1 @@
+export default '0x82ECf3cFcc6de71835EDbD521dE162aA0E0cc06f'

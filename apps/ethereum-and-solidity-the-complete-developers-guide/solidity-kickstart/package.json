@@ -1,0 +1,28 @@
+{
+  "name": "solidity-kickstart",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build:contract": "node ./ethereum/compile.js",
+    "deploy:contract": "node ./ethereum/deploy.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.15",
+    "axios": "^1.6.7",
+    "fs-extra": "^11.2.0",
+    "ganache": "^7.9.2",
+    "mocha": "^10.3.0",
+    "next": "^14.1.3",
+    "node-sass": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.72.0",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "3.0.0-beta.2",
+    "solc": "^0.8.24",
+    "web3": "^4.6.0"
+  }
+}
