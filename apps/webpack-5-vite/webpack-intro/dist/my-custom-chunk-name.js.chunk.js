@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([["my-custom-chunk-name.js"],{541:(e,n,c)=>{c.d(n,{default:()=>s});var t=c(768),d=c.n(t);const s=()=>{const e=document.createElement("p");e.innerText=d().join(["Async","module","loaded"]," "),document.body.appendChild(e)}}}]);
