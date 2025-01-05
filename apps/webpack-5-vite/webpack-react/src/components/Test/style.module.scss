@@ -1,0 +1,10 @@
+@use "@/assets/styles/variables" as vars;
+
+.title {
+  color: vars.$color-primary;
+  background-color: cadetblue;
+}
+
+.foo-bar {
+  font-size: 14px;
+}

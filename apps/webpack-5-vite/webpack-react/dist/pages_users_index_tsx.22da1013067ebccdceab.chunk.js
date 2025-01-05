@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([["pages_users_index_tsx"],{380:(e,s,a)=>{a.r(s),a.d(s,{default:()=>n});var d=a(793);const n=()=>(0,d.jsx)("div",{children:"User index page"})}}]);
