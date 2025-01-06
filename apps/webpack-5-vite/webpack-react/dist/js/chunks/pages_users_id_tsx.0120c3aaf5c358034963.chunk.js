@@ -1,1 +1,2 @@
+// © Created by John H
 "use strict";(self.webpackChunk=self.webpackChunk||[]).push([["pages_users_id_tsx"],{679:(s,e,r)=>{r.r(e),r.d(e,{default:()=>d});var t=r(793),u=r(851);const d=()=>{const s=(0,u.g)();return(0,t.jsxs)("div",{children:["user with dynamic id: ",s.id,(0,t.jsx)(u.N_,{to:"/users",children:(0,t.jsx)("button",{children:"Go to /users"})})]})}}}]);

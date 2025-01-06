@@ -1,8 +1,10 @@
 const path = require('path');
-const HtmkWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const AddCopyrightWebpackPlugin = require('./plugins/add-copyright-webpack-plugin');
+const LogBuildTimeWebpackPlugin = require('./plugins/log-build-time-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -13,22 +15,23 @@ module.exports = (
   return {
     mode: isDev ? 'development' : 'production',
 
-    context: path.resolve(__dirname, 'src'),
+    context: path.resolve(__dirname, './src'),
 
     entry: {
       main: './index.tsx'
     },
 
     output: {
-      chunkFilename: '[name].[hash].chunk.js',
+      filename: './js/[name].[contenthash].js',
+      chunkFilename: './js/chunks/[name].[chunkhash].chunk.js',
       clean: true,
-      assetModuleFilename: './assets/images/[name].[hash][ext]',
+      assetModuleFilename: './assets/images/[name].[contenthash][ext]',
       publicPath: '/'
     },
 
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src'),
+        '@': path.resolve(__dirname, './src'),
       },
       extensions: ['.tsx', '.ts', '.js', '.jsx', '.scss'],
     },
@@ -48,7 +51,7 @@ module.exports = (
     },
 
     plugins: [
-      new HtmkWebpackPlugin({
+      new HtmlWebpackPlugin({
         template: './assets/index.html',
         title: 'webpack-react',
         favicon: './assets/favicon.ico'
@@ -58,16 +61,22 @@ module.exports = (
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: path.resolve(__dirname, 'public'),
-            to: path.resolve(__dirname, 'dist'),
+            from: path.resolve(__dirname, './public'),
+            to: path.resolve(__dirname, './dist'),
           }
         ]
       }),
 
       new MiniCssExtractPlugin({
         filename: 'assets/styles/[name].[contenthash].css',
-        chunkFilename: 'assets/styles/[name].[contenthash].chunk.css'
-      })
+        chunkFilename: 'assets/styles/[name].[chunkhash].chunk.css'
+      }),
+
+      new AddCopyrightWebpackPlugin({
+        content: '© Created by John H'
+      }),
+
+      new LogBuildTimeWebpackPlugin()
     ],
 
     module: {
@@ -108,7 +117,7 @@ module.exports = (
       historyApiFallback: true,
       static: [
         {
-          directory: path.resolve(__dirname, 'public'),
+          directory: path.resolve(__dirname, './public'),
           watch: true,
           publicPath: '/',
         }

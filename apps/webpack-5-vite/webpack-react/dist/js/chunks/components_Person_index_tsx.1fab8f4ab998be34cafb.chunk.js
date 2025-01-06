@@ -1,1 +1,2 @@
+// © Created by John H
 "use strict";(self.webpackChunk=self.webpackChunk||[]).push([["components_Person_index_tsx"],{328:(e,s,n)=>{n.r(s),n.d(s,{default:()=>c});var a=n(793);const c=()=>(0,a.jsx)("h1",{className:"oPNCaTLSNpgHKR2NHde0",children:"Person"})}}]);
